@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VehiclesController;
+use App\Http\Controllers\RentalController;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Vehicle;
@@ -40,3 +41,22 @@ Route::delete('/vehicles/{id}', [VehiclesController::class, 'delete'])->name('ve
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
+
+// Mostrar el formulario para crear un arriendo
+
+Route::get('/rentals/create', [RentalController::class, 'create'])->name('rentals.create');
+
+
+// Almacenar un arriendo
+Route::post('/rentals', [RentalController::class, 'store'])->name('rentals.store');
+
+// Listar los arriendos
+Route::get('/rentals', [RentalController::class, 'index'])->name('rentals.index');
+
+// Mostrar el formulario para editar un arriendo
+Route::get('/rentals/{rental}/edit', [RentalController::class, 'edit'])->name('rentals.edit');
+
+// Actualizar un arriendo
+Route::put('/rentals/{rental}', [RentalController::class, 'update'])->name('rentals.update');
+

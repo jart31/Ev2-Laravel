@@ -4,7 +4,10 @@
 <div class="container py-4">
     <div class="d-flex justify-content-end">
         <a class="btn btn-outline-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
+        <a class="btn btn-primary my-4" href="{{ route('categories.index') }}">Ver Categorías</a>
+
     </div>
+
 
     <h4 class="my-4">soy el desarrollador de guugul que se va, procedo a dejar algunas pruebas que realicé</h4>
     <hr />
@@ -113,6 +116,7 @@
     @endforeach
 </div>
 @endsection
+
 
 
 @push('css')

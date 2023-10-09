@@ -19,4 +19,11 @@ class CategoriesController extends Controller
         // La redirección recibe el nombre que se le asigna a la ruta en el fichero de rutas.
         return redirect()->route('home');
     }
+    public function index()
+    {
+        $categories = Category::withCount('vehicles')->get();
+        return view('admin.categories', ['categories' => $categories]);
+    }
+
+
 }
