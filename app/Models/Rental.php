@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Rental extends Model
 {
     use HasFactory;
-    public function client()
-{
-    return $this->belongsTo(Client::class);
-}
 
-public function vehicle()
-{
-    return $this->belongsTo(Vehicle::class);
-}
+    protected $fillable = [
+        'name', 'last_name', 'second_last_name', 'rut',
+        'email', 'vehicle_id', 'rental_start', 'rental_end'
+    ];
 
+
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicle::class);
+    }
 }
