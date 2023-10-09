@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Category;
+use App\Models\Rental;
+
 
 use Illuminate\Http\Request;
 
@@ -22,8 +24,11 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::withCount('vehicles')->get();
-        return view('admin.categories', ['categories' => $categories]);
+        $totalRentals = Rental::count();
+
+        return view('admin.categories', compact('categories', 'totalRentals'));
     }
+
 
 
 }

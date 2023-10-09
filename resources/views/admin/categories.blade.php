@@ -12,6 +12,9 @@
     <h4 class="my-4">Lista de Categorías</h4>
     <hr />
 
+<p>Total de arriendos en el sistema: {{ $totalRentals }}</p>
+<hr />
+
     <table class="table table-striped">
         <thead>
             <tr>
