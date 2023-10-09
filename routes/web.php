@@ -59,4 +59,5 @@ Route::get('/rentals', [RentalController::class, 'index'])->name('rentals.index'
 // Eliminar un arriendo (soft delete)
 Route::delete('/rentals/{rental}', [RentalController::class, 'destroy'])->name('rentals.destroy');
 
+Route::delete('/rentals/{id}', [RentalController::class, 'destroy'])->name('rentals.destroy');
 

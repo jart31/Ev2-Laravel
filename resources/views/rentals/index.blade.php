@@ -33,7 +33,11 @@
                 <td>{{$rental->rental_start}}</td>
                 <td>{{$rental->rental_end}}</td>
                 <td>
-                    <!-- Aquí puedes agregar botones para acciones como eliminar -->
+                <form action="{{ route('rentals.destroy', $rental->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de querer eliminar este arriendo?');">Eliminar</button>
+    </form>    <!-- Aquí puedes agregar botones para acciones como eliminar -->
                 </td>
             </tr>
             @endforeach

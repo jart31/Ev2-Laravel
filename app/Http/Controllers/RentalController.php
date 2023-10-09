@@ -50,5 +50,12 @@ class RentalController extends Controller
 
         $rental = Rental::create($request->all());
         return redirect()->route('rentals.index')->with('success', 'Arriendo creado exitosamente.');
+
+    }
+    public function destroy($id) {
+        $rental = Rental::findOrFail($id);
+        $rental->delete();  // Esto realizará un soft delete debido al trait SoftDeletes en tu modelo.
+    
+        return redirect()->route('rentals.index')->with('success', 'Arriendo eliminado exitosamente');
     }
 }
